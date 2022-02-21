@@ -4,10 +4,13 @@ import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import org.apache.commons.io.FileUtils;
+import utils.BSGameSDK;
 import utils.Utils;
 
 import java.awt.Dimension;
 import java.awt.*;
+import java.io.File;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +28,8 @@ public class Main {
 
     public static void doScan() {
         try {
-            // 登录的结果放这里
-            JsonObject result = (JsonObject) JsonParser.parseString("");
+            // 登录结果, 解析自个写就行
+            JsonObject result = (JsonObject) JsonParser.parseString(FileUtils.readFileToString(new File("E:/BH3BiliLogin/result.json"), "UTF-8"));
 
             QRScanner scanner = new QRScanner(result.get("uid").getAsString(), result.get("access_key").getAsString());
 
