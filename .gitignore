@@ -2,3 +2,4 @@
 /.idea
 *.iml
 /src/Main.java
+*.json
