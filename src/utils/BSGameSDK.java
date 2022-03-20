@@ -85,7 +85,6 @@ public class BSGameSDK {
             data.addProperty("seccode", captchaResult + "|jordan");
             data.addProperty("pwd", Encrypt.rsaEncrypt(hash + password, public_key));
             query = Encrypt.loginSetSign(data);
-            Utils.httpPost(loginURL + "api/client/login", query, true);
 
             return new String[] {"0", Utils.httpPost(loginURL + "api/client/login", query, true)};
         }
